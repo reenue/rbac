@@ -7,3 +7,5 @@ require (
 	github.com/rafaeljusto/redigomock v0.0.0-20190202135759-257e089e14a1 // indirect
 	github.com/stretchr/testify v1.3.0
 )
+
+go 1.13

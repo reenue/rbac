@@ -2,11 +2,12 @@ package rbac
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/casbin/casbin"
 	"github.com/casbin/casbin/model"
 	"github.com/casbin/casbin/persist"
 	casbin_rbac "github.com/casbin/casbin/rbac"
-	"strings"
 )
 
 const (
@@ -376,6 +377,12 @@ func (rm *Enforcer) GetPermissionsForUser(user, domain string, filters ...interf
 	}
 
 	return &up
+}
+
+func (rm *Enforcer) Load() error {
+	err := rm.enforcer.LoadPolicy()
+
+	return err
 }
 
 func (rm *Enforcer) Save() error {
